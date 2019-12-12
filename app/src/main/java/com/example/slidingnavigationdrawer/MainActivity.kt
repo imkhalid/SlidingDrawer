@@ -7,7 +7,6 @@ import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,16 +26,10 @@ class MainActivity : AppCompatActivity() {
 //                content.scaleX = 1 - slideOffset / scaleFactor
                 content.scaleY = 1 - slideOffset / scaleFactor
                 if (slideOffset > 0f) {
-                    val unwrappedDrawable =
-                        AppCompatResources.getDrawable(this@MainActivity, R.drawable.rounded)
-                    val wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable!!)
-                    DrawableCompat.setTint(
-                        wrappedDrawable,
-                        resources.getColor(R.color.colorAccent)
-                    )
+                   DrawableCompat.setTint(resources.getDrawable(R.drawable.rounded),Color.BLUE)
                     content.setBackgroundResource(R.drawable.rounded)
                 } else {
-                    content.setBackgroundColor(resources.getColor(R.color.colorPrimary))
+                    content.setBackgroundColor(resources.getColor(R.color.colorAccent))
                 }
             }
         }

@@ -22,7 +22,7 @@ public class SlidingDrawerLayout {
 
                 float slideX=drawerView.getWidth()*slideOffset;
                 v.setTranslationX(slideX);
-//                v.setScaleX(1- (slideOffset / scaleFactor));
+                v.setScaleX(1- (slideOffset / scaleFactor));
                 v.setScaleY(1- (slideOffset / scaleFactor));
             }
         };
@@ -40,7 +40,7 @@ public class SlidingDrawerLayout {
 
                 float slideX=drawerView.getWidth()*slideOffset;
                 v.setTranslationX(slideX);
-//                v.setScaleX(1- (slideOffset / scaleFactor));
+                v.setScaleX(1- (slideOffset / scaleFactor));
                 v.setScaleY(1- (slideOffset / scaleFactor));
             }
         };
@@ -70,7 +70,7 @@ public class SlidingDrawerLayout {
 
                 float slideX=drawerView.getWidth()*slideOffset;
                 container.setTranslationX(slideX);
-//                v.setScaleX(1- (slideOffset / scaleFactor));
+                container.setScaleX(1- (slideOffset / scaleFactor));
                 container.setScaleY(1- (slideOffset / scaleFactor));
                 if (slideOffset>0f) {
                     Drawable unwrappedDrawable = AppCompatResources.getDrawable(activity, R.drawable.rounded);
@@ -88,13 +88,12 @@ public class SlidingDrawerLayout {
         mDrawerLayout.addDrawerListener(mActionbarToggle);
     }
 
-    public SlidingDrawerLayout(Activity mActivity, final DrawerLayout mDrawerLayout, final View container, View toggleBtn, float mScaleFactor, final int containerColor){
+    public SlidingDrawerLayout(Activity mActivity, final DrawerLayout mDrawerLayout,
+                               final View container, View toggleBtn, float mScaleFactor, final int containerColor){
 
         /*
         this function has Drawable with rounded container, custom color and toggle btn
         */
-
-
         if (mScaleFactor!=0f)
             scaleFactor=mScaleFactor;
 
@@ -106,12 +105,10 @@ public class SlidingDrawerLayout {
 
                 float slideX=drawerView.getWidth()*slideOffset;
                 container.setTranslationX(slideX);
-//                v.setScaleX(1- (slideOffset / scaleFactor));
+                container.setScaleX(1- (slideOffset / scaleFactor));
                 container.setScaleY(1- (slideOffset / scaleFactor));
                 if (slideOffset>0f) {
-                    Drawable unwrappedDrawable = AppCompatResources.getDrawable(activity, R.drawable.rounded);
-                    Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
-                    DrawableCompat.setTint(wrappedDrawable, containerColor);
+                    DrawableCompat.setTint(activity.getResources().getDrawable(R.drawable.rounded),containerColor);
                     container.setBackgroundResource(R.drawable.rounded);
                 }
                 else {
